@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   resources :search_products
 
-  root :to => 'search_products#index', via: :get
+  root :to => 'search_products#showSearch', via: :get
  
   match 'getProductInfo' => 'search_products#getProductInfo', via: :get
+
+  match 'showSearch' => 'search_products#showSearch', via: :get
   
-  match '*foo' => 'search_products#index', via: :get
+  match '*foo' => 'search_products#showSearch', via: :get
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,48 @@
+Compareasy = {}
+Compareasy.Views ||= {}
+Compareasy.Views.SearchInfo ||= {}
+
+class Compareasy.Views.SearchInfo.SearchView
+  constructor: (options)->
+    @render_element = "search-output"
+    @search_value
+    search_template = $('#search-container').html()
+    @template = _.template(search_template)
+    @bindEvents()
+
+  bindEvents: ()->
+    $('#search-btn').bind("click", (e)=>@getSearchInfo(e))
+
+  getSearchInfo: (e)->
+    $('#'+@render_element).html('')
+    @search_value = $('#search-box').val()
+    if @search_value
+      console.log(@search_value)
+      params = {search: @search_value}  
+      $.ajax
+        url: "/getProductInfo"
+        type: "GET"
+        data: params
+        success: (models, resp) =>
+          if models
+            @modelData=""
+            models.forEach(
+              fn = (obj) =>
+                @modelData += @template(prod_data: obj)
+            ) 
+            $("#" + @render_element).append(@modelData)
+          else
+            $("#" + @render_element).html('No results')   
+        error: () =>
+    else
+      $("#" + @render_element).html('Enter a product text to search...')       
+
+exports = this
+exports.Compareasy = Compareasy
+exports.setupSearchInfoPageEvents = ()->
+  view = new Compareasy.Views.SearchInfo.SearchView()
+        
+
+$(document).ready(()->
+  setupSearchInfoPageEvents()
+)

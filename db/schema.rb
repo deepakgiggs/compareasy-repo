@@ -16,14 +16,17 @@ ActiveRecord::Schema.define(version: 20150407205111) do
   create_table "search_products", force: :cascade do |t|
     t.string   "product_id"
     t.string   "product_title"
-    t.string   "product_site"
+    t.string   "product_owner"
+    t.string   "product_url"
+    t.string   "product_categories"
     t.string   "product_image"
-    t.string   "product_link"
-    t.string   "product_price"
-    t.string   "product_discount"
-    t.string   "product_details"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "product_description"
+    t.string   "product_retail_price"
+    t.string   "product_selling_price"
+    t.string   "product_brand"
+    t.string   "product_color"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
