@@ -1,0 +1,16 @@
+/Users/DeepakGiggs/.rvm/rubies/ruby-1.9.3-p547/bin/ruby extconf.rb
+creating Makefile
+
+make  clean
+
+make
+compiling binding_of_caller.c
+binding_of_caller.c:68:3: warning: suggest braces around initialization of subobject [-Wmissing-braces]
+  binding_mark,
+  ^~~~~~~~~~~~~
+1 warning generated.
+linking shared-object binding_of_caller.bundle
+
+make  install
+/usr/bin/install -c -m 0755 binding_of_caller.bundle /Users/DeepakGiggs/Documents/compareasy-workspace/compareasy/vendor/bundle/gems/binding_of_caller-0.7.2/ext/binding_of_caller/.gem.20150408-2376-1a66vuo
+installing default binding_of_caller libraries

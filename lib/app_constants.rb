@@ -1,0 +1,4 @@
+module AppConstants
+  CEASY_FLIPKART_AFF_ID = "deepakthe"
+  CEASY_FLIPKART_AFF_TOKEN = "936a2356b94e4d62985de40aa3f510a7"
+end
