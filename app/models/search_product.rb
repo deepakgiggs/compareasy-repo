@@ -82,7 +82,6 @@ class SearchProduct < ActiveRecord::Base
     data = self.where(conditions)
     
     if not data.any?
-      puts "************"
       terms = query.split(' ') # split the string on each space
       conditions = terms.map{ |term| "product_title LIKE #{sanitize("%#{term}%")}" }.join(' OR ') 
     
